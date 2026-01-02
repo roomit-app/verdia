@@ -1,4 +1,4 @@
-import f1 from "@/assets/f1.jpg";
+//import f1 from "@/assets/f1.jpg";
 import f2 from "@/assets/f2.jpg";
 import f3 from "@/assets/f3.jpg";
 import f4 from "@/assets/f4.jpg";
@@ -9,7 +9,7 @@ import f7 from "@/assets/f7.jpg";
 
 
 const galleryImages = [
-  { src: f1, alt: "Jardín residencial integrado en el paisaje." },
+  //{ src: f1, alt: "Jardín residencial integrado en el paisaje." },
   { src: f2, alt: "Diseño de jardín moderno" },
   { src: f3, alt: "Zona exterior con diseño funcional" },
   { src: f4, alt: "Composición vegetal en entorno natural" },
