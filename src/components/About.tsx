@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import serviceMaintenance from "@/assets/service-maintenance.jpg";
+import nosotros from "@/assets/nosotros.jpg";
 
 const features = [
   "Profesionales certificados y con experiencia",
@@ -20,7 +20,7 @@ const About = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-lg overflow-hidden">
               <img
-                src={serviceMaintenance}
+                src={nosotros}
                 alt="Equipo Verdia Jardinería"
                 className="w-full h-full object-cover"
               />

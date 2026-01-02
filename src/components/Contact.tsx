@@ -10,12 +10,12 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Dirección",
-    content: "Calle Jardín Verde, 123\n28001 Madrid, España",
+    content: "Ames, A Coruña,
   },
   {
     icon: Phone,
     title: "Teléfono",
-    content: "+34 600 000 000",
+    content: "+34 614 986 329",
   },
   {
     icon: Mail,

@@ -74,7 +74,7 @@ const Footer = () => {
           <div className="flex gap-4">
             {[
               { icon: Facebook, href: "#" },
-              { icon: Instagram, href: "#" },
+              { icon: Instagram, href: "https://www.instagram.com/verdiajardineria?igsh=MWV4bTJ1aXBtOG83bQ==" },
               { icon: Twitter, href: "#" },
               { icon: Linkedin, href: "#" },
             ].map(({ icon: Icon, href }) => (
