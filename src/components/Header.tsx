@@ -18,13 +18,17 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#inicio" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">V</span>
-            </div>
+            <img
+              src="../assets/logo.PNG"
+              alt="Verdia Jardinería"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+            />
+
             <span className="font-serif text-xl md:text-2xl font-bold text-foreground">
               Verdia<span className="text-primary">Jardinería</span>
             </span>
           </a>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
