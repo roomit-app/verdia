@@ -10,11 +10,11 @@ import f7 from "@/assets/f7.jpg";
 
 const galleryImages = [
   //{ src: f1, alt: "Jardín residencial integrado en el paisaje." },
+  { src: f6, alt: "Acceso ajardinado con piedra natural" },
   { src: f2, alt: "Diseño de jardín moderno" },
   { src: f3, alt: "Zona exterior con diseño funcional" },
   { src: f4, alt: "Composición vegetal en entorno natural" },
   { src: f5, alt: "Proyecto de diseño de jardín a medida" },
-  { src: f6, alt: "Acceso ajardinado con piedra natural" },
   { src: f7, alt: "Césped natural en área residencial" },
 
 
