@@ -18,18 +18,25 @@ export default async function handler(
   }
 
   try {
+    // await resend.emails.send({
+    //   from: "Verdia <onboarding@resend.dev>",
+    //   to: ["info@verdiajardineria.com"],
+    //   subject: "Nuevo mensaje desde la web",
+    //   html: `
+    //     <h2>Nuevo contacto</h2>
+    //     <p><strong>Nombre:</strong> ${name}</p>
+    //     <p><strong>Email:</strong> ${email}</p>
+    //     <p><strong>Teléfono:</strong> ${phone}</p>
+    //     <p><strong>Mensaje:</strong><br/>${message}</p>
+    //   `,
+    // });
     await resend.emails.send({
-      from: "Verdia Jardinería <onboarding@resend.dev>",
-      to: ["info@verdiajardineria.com"],
-      subject: "Nuevo mensaje desde la web",
-      html: `
-        <h2>Nuevo contacto</h2>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone}</p>
-        <p><strong>Mensaje:</strong><br/>${message}</p>
-      `,
-    });
+  from: "Verdia <onboarding@resend.dev>",
+  to: ["delivered@resend.dev"],
+  subject: "PRUEBA Resend funcionando",
+  html: "<p>Si ves esto, Resend funciona</p>",
+});
+
 
 
     return res.status(200).json({ ok: true });
