@@ -26,10 +26,13 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
-            Transformamos tus espacios en{" "}
-            <span className="text-chart-2">jardines de ensueño</span>
+         <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
+            Diseñamos y cuidamos jardines{" "}
+            <span className="text-chart-2">con respeto por la tierra</span>
+            <br />
+            <span className="text-chart-2">y atención al detalle</span>
           </h1>
+
 
           <p className="text-lg md:text-xl text-card/90 mb-8 max-w-2xl mx-auto">
             Diseño, mantenimiento y cuidado profesional de jardines.
