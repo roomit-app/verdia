@@ -49,38 +49,34 @@ const Contact = () => {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-      if (!res.ok) throw new Error();
+    if (!res.ok) throw new Error();
 
-      toast({
-        title: "¡Mensaje enviado!",
-        description: "Te responderemos lo antes posible.",
-      });
+    toast({
+      title: "¡Mensaje enviado!",
+      description: "Te responderemos lo antes posible.",
+    });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } catch {
-      toast({
-        title: "Error",
-        description: "No se pudo enviar el mensaje. Inténtalo más tarde.",
-        variant: "destructive",
-      });
-    }
-  };
+    setFormData({ name: "", email: "", phone: "", message: "" });
+  } catch {
+    toast({
+      title: "Error",
+      description: "No se pudo enviar el mensaje. Inténtalo más tarde.",
+      variant: "destructive",
+    });
+  }
+};
+
 
   return (
     <section id="contacto" className="py-20 bg-background">
