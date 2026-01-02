@@ -6,7 +6,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const contactInfo = [
+type ContactInfoItem = {
+  icon: React.ElementType;
+  title: string;
+  content: string;
+  href?: string;
+};
+
+const contactInfo: ContactInfoItem[] = [
   {
     icon: MapPin,
     title: "Dirección",
@@ -16,11 +23,13 @@ const contactInfo = [
     icon: Phone,
     title: "Teléfono",
     content: "+34 611 616 469",
+    href: "tel:+34611616469",
   },
   {
     icon: Mail,
     title: "Email",
     content: "info@verdiajardineria.com",
+    href: "mailto:info@verdiajardineria.com",
   },
   {
     icon: Clock,
@@ -31,6 +40,7 @@ const contactInfo = [
 
 const Contact = () => {
   const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,36 +48,39 @@ const Contact = () => {
     message: "",
   });
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  try {
-    const res = await fetch("../api/send-email.ts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error();
 
-    toast({
-      title: "¡Mensaje enviado!",
-      description: "Te responderemos lo antes posible.",
-    });
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Te responderemos lo antes posible.",
+      });
 
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  } catch {
-    toast({
-      title: "Error",
-      description: "No se pudo enviar el mensaje.",
-      variant: "destructive",
-    });
-  }
-};
-
-
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      toast({
+        title: "Error",
+        description: "No se pudo enviar el mensaje. Inténtalo más tarde.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <section id="contacto" className="py-20 bg-background">
@@ -86,12 +99,12 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
+          {/* Info */}
           <div className="space-y-4">
             {contactInfo.map((info) => (
               <Card key={info.title} className="border-border">
                 <CardContent className="p-4 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center">
                     <info.icon className="w-5 h-5 text-accent-foreground" />
                   </div>
                   <div>
@@ -99,7 +112,16 @@ const handleSubmit = async (e: React.FormEvent) => {
                       {info.title}
                     </h3>
                     <p className="text-muted-foreground whitespace-pre-line text-sm">
-                      {info.content}
+                      {info.href ? (
+                        <a
+                          href={info.href}
+                          className="hover:text-primary transition-colors"
+                        >
+                          {info.content}
+                        </a>
+                      ) : (
+                        info.content
+                      )}
                     </p>
                   </div>
                 </CardContent>
@@ -107,83 +129,66 @@ const handleSubmit = async (e: React.FormEvent) => {
             ))}
           </div>
 
-          {/* Contact Form */}
+          {/* Formulario */}
           <Card className="lg:col-span-2 border-border">
             <CardContent className="p-6 md:p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
+                    <label className="block text-sm font-medium mb-2">
                       Nombre completo *
                     </label>
                     <Input
-                      id="name"
                       value={formData.name}
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      placeholder="Tu nombre"
                       required
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
+                    <label className="block text-sm font-medium mb-2">
                       Email *
                     </label>
                     <Input
-                      id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      placeholder="tu@email.com"
                       required
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
+                  <label className="block text-sm font-medium mb-2">
                     Teléfono
                   </label>
                   <Input
-                    id="phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    placeholder="+34 600 000 000"
                   />
                 </div>
+
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
+                  <label className="block text-sm font-medium mb-2">
                     Cuéntanos sobre tu proyecto *
                   </label>
                   <Textarea
-                    id="message"
+                    rows={5}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    placeholder="Describe tu jardín, qué servicios necesitas, dimensiones aproximadas..."
-                    rows={5}
                     required
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full md:w-auto">
+
+                <Button type="submit" size="lg">
                   Enviar Mensaje
                   <Send className="ml-2 w-4 h-4" />
                 </Button>
