@@ -44,9 +44,9 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:+34614986329" className="flex items-center gap-2 text-primary font-semibold">
+            <a href="tel:+34611616469" className="flex items-center gap-2 text-primary font-semibold">
               <Phone className="w-4 h-4" />
-              614986329
+              611 616 469
             </a>
             <Button asChild>
               <a href="#contacto">Presupuesto Gratis</a>

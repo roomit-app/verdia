@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Teléfono",
-    content: "+34 614 986 329",
+    content: "+34 611 616 469",
   },
   {
     icon: Mail,
@@ -42,7 +42,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("../api/send-email", {
+    const res = await fetch("../api/send-email.ts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
