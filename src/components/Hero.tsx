@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf } from "lucide-react";
-import heroVideo from "@/assets/hero.mp4";
+import heroImage from "@/assets/hero-garden.jpg";
 
 const Hero = () => {
   return (
@@ -8,21 +8,14 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src={heroVideo}
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        onEnded={(e) => {
-          const video = e.currentTarget;
-          video.pause();
-          video.currentTime = video.duration;
-        }}
-      />
+        <img
+          src={heroImage}
+          alt="Jardín diseñado por Verdia Jardinería"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-foreground/60" />
@@ -31,6 +24,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto">
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-full mb-6">
             <Leaf className="w-4 h-4" />
             <span className="text-sm font-medium">
@@ -38,6 +32,7 @@ const Hero = () => {
             </span>
           </div>
 
+          {/* Title */}
           <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
             Diseñamos y cuidamos jardines{" "}
             <span className="text-chart-2">
@@ -45,11 +40,13 @@ const Hero = () => {
             </span>
           </h1>
 
+          {/* Description */}
           <p className="text-lg md:text-xl text-card/90 mb-8 max-w-2xl mx-auto">
             Diseño, mantenimiento y cuidado profesional de jardines.
             Creamos espacios verdes únicos que reflejan tu estilo de vida.
           </p>
 
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild className="text-lg px-8">
               <a href="#contacto">
