@@ -1,16 +1,24 @@
-import heroGarden from "@/assets/hero-garden.jpg";
-import serviceDesign from "@/assets/service-design.jpg";
-import serviceMaintenance from "@/assets/service-maintenance.jpg";
-import serviceIrrigation from "@/assets/service-irrigation.jpg";
-import servicePruning from "@/assets/service-pruning.jpg";
+import f1 from "@/assets/f1.jpg";
+import f2 from "@/assets/f2.jpg";
+import f3 from "@/assets/f3.jpg";
+import f4 from "@/assets/f4.jpg";
+import f5 from "@/assets/f5.jpg";
+import f6 from "@/assets/f6.jpg";
+import f7 from "@/assets/f7.jpg";
+
+
 
 const galleryImages = [
-  { src: heroGarden, alt: "Jardín con camino de piedra" },
-  { src: serviceDesign, alt: "Diseño de jardín moderno" },
-  { src: serviceMaintenance, alt: "Mantenimiento de jardines" },
-  { src: serviceIrrigation, alt: "Sistema de riego automático" },
-  { src: servicePruning, alt: "Poda profesional de árboles" },
-  { src: heroGarden, alt: "Jardín paisajístico" },
+  { src: f1, alt: "Jardín residencial integrado en el paisaje." },
+  { src: f2, alt: "Diseño de jardín moderno" },
+  { src: f3, alt: "Zona exterior con diseño funcional" },
+  { src: f4, alt: "Composición vegetal en entorno natural" },
+  { src: f5, alt: "Proyecto de diseño de jardín a medida" },
+  { src: f6, alt: "Acceso ajardinado con piedra natural" },
+  { src: f7, alt: "Césped natural en área residencial" },
+
+
+
 ];
 
 const Gallery = () => {
