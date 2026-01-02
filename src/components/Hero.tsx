@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf } from "lucide-react";
-import heroVideo from "@/assets/hero_loop.mp4";
+import heroImage from "@/assets/hero-garden.jpg";
 
 const Hero = () => {
   return (
@@ -8,21 +8,11 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Background Video */}
-      <div className="absolute inset-0">
-        <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        poster="/hero-poster.jpg"
-        className="w-full h-full object-cover"
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
-            
-
         {/* Overlay */}
         <div className="absolute inset-0 bg-foreground/60" />
       </div>
