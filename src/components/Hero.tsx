@@ -21,7 +21,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-full mb-6">
             <Leaf className="w-4 h-4" />
-            <span className="text-sm font-medium">Expertos en Jardinería desde 2010</span>
+            <span className="text-sm font-medium">
+              Expertos en Jardinería desde 2010
+            </span>
           </div>
 
           <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
@@ -30,7 +32,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-card/90 mb-8 max-w-2xl mx-auto">
-            Diseño, mantenimiento y cuidado profesional de jardines. 
+            Diseño, mantenimiento y cuidado profesional de jardines.
             Creamos espacios verdes únicos que reflejan tu estilo de vida.
           </p>
 
@@ -41,6 +43,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
@@ -52,7 +55,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-card/20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-white/20">
             {[
               { number: "15+", label: "Años de Experiencia" },
               { number: "500+", label: "Proyectos Completados" },
@@ -60,10 +63,12 @@ const Hero = () => {
               { number: "24/7", label: "Soporte Disponible" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-chart-2 mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
                   {stat.number}
                 </div>
-                <div className="text-card/80 text-sm">{stat.label}</div>
+                <div className="text-white/80 text-sm">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
