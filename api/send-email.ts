@@ -21,17 +21,16 @@ export default async function handler(
     await resend.emails.send({
       from: "Verdia Jardinería <onboarding@resend.dev>",
       to: ["info@verdiajardineria.com"],
-      subject: `Nuevo mensaje desde la web`,
-      replyTo: email,
+      subject: "Nuevo mensaje desde la web",
       html: `
         <h2>Nuevo contacto</h2>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone || "No indicado"}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
+        <p><strong>Teléfono:</strong> ${phone}</p>
+        <p><strong>Mensaje:</strong><br/>${message}</p>
       `,
     });
+
 
     return res.status(200).json({ ok: true });
   } catch (error) {
