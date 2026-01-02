@@ -29,7 +29,6 @@ const Hero = () => {
          <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
             Diseñamos y cuidamos jardines{" "}
             <span className="text-chart-2">con respeto por la tierra</span>
-            <br />
             <span className="text-chart-2">y atención al detalle</span>
           </h1>
 
