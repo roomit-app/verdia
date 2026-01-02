@@ -1,18 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Leaf } from "lucide-react";
-import heroImage from "@/assets/hero-garden.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center pt-20"
+      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <video
+          src={heroVideo}
+          className="w-full h-full object-cover"
+          muted
+          playsInline
+          preload="auto"
+        />
+
+        {/* Overlay */}
         <div className="absolute inset-0 bg-foreground/60" />
       </div>
 
@@ -26,11 +32,12 @@ const Hero = () => {
             </span>
           </div>
 
-         <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-card mb-6 leading-tight">
             Diseñamos y cuidamos jardines{" "}
-            <span className="text-chart-2">con respeto por la tierra y atención al detalle</span>
+            <span className="text-chart-2">
+              con respeto por la tierra y atención al detalle
+            </span>
           </h1>
-
 
           <p className="text-lg md:text-xl text-card/90 mb-8 max-w-2xl mx-auto">
             Diseño, mantenimiento y cuidado profesional de jardines.
