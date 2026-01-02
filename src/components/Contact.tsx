@@ -10,7 +10,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Dirección",
-    content: "Ames, A Coruña,
+    content: "Ames, A Coruña",
   },
   {
     icon: Phone,
@@ -38,14 +38,30 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const res = await fetch("/api/send-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+
+  if (res.ok) {
     toast({
       title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo pronto.",
+      description: "Te responderemos en breve.",
     });
     setFormData({ name: "", email: "", phone: "", message: "" });
-  };
+  } else {
+    toast({
+      title: "Error",
+      description: "No se pudo enviar el mensaje.",
+      variant: "destructive",
+    });
+  }
+};
+
 
   return (
     <section id="contacto" className="py-20 bg-background">
