@@ -38,22 +38,27 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const res = await fetch("/api/send-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  });
+  try {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-  if (res.ok) {
+    if (!res.ok) throw new Error();
+
     toast({
       title: "¡Mensaje enviado!",
-      description: "Te responderemos en breve.",
+      description: "Te responderemos lo antes posible.",
     });
+
     setFormData({ name: "", email: "", phone: "", message: "" });
-  } else {
+  } catch {
     toast({
       title: "Error",
       description: "No se pudo enviar el mensaje.",
@@ -61,6 +66,7 @@ const Contact = () => {
     });
   }
 };
+
 
 
   return (
