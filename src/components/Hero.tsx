@@ -11,12 +11,18 @@ const Hero = () => {
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
-          src={heroVideo}
-          className="w-full h-full object-cover"
-          muted
-          playsInline
-          preload="auto"
-        />
+        className="absolute inset-0 w-full h-full object-cover"
+        src={heroVideo}
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        onEnded={(e) => {
+          const video = e.currentTarget;
+          video.pause();
+          video.currentTime = video.duration;
+        }}
+      />
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-foreground/60" />
